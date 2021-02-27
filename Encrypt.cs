@@ -47,9 +47,9 @@ namespace EncryptionProj
             Console.WriteLine($"Encrypted data: {strOutput}");
             return strOutput;
         }
-        public static string Decrypt(string input)
+        public static string Decrypt(string input, string key)
         {
-            string key = Key1;
+            
             string extract = "";
             string output = "";
 
@@ -73,10 +73,19 @@ namespace EncryptionProj
                 }
                 break;
             }
-
-            int l = (key.Length - extract.Length - 1) / 2;
-            string[] extractArr = new string[l];
+            int countEx = 0;
+            for (int i = 0 ; i < key.Length ; i++ )
+            {
+                if (key[i] == '!')
+                {
+                    countEx++;
+                }
+            }
+            //New array length of how many parameters, to store binary.
+            string[] extractArr = new string[countEx];
             int lc = 0;
+
+            //Extract binary to each array index.
             for (int i = extract.Length; i < key.Length; i++)
             {
                 
@@ -93,7 +102,7 @@ namespace EncryptionProj
                 z = Int32.Parse(extract);
                 extract = "";
                 TIC = 0;
-                for (int j = 0; j < z  ;j++)
+                for (int j = 0; j < z  ; j++)
                 {
                     extract += input[j + TI];
                     TIC++;
@@ -102,11 +111,13 @@ namespace EncryptionProj
 
                 w = Int32.Parse(extract);
                 y = w / x;
-                if (y.ToString().Length != 8)
+                output = y.ToString();
+                if (output.Length < 8)
                 {
-                    extractArr[lc] += '0';
+                    output = output.PadLeft(8,'0');
                 }
-                extractArr[lc] += y.ToString();
+
+                extractArr[lc] += output;
                 
                 lc++;
             }

@@ -1,24 +1,19 @@
 ﻿using System;
 using static EncryptionProj.Convert;
 using static EncryptionProj.Crypt;
+using static EncryptionProj.UserInterface;
 
 namespace EncryptionProj
 {
     class Program
     {
-        public static void printArray(string[] input)
-        {
-            foreach (string x in input)
-            {
-                Console.Write(x);
-                Console.Write(',');
-            }
-            Console.Write("\n");
-        }
+        
         static void Main(string[] args)
         {
 
-            Console.WriteLine(Decrypt(Encrypt("This made my head hurt")));
+            UserInEncrypt();
+
+            UserInDecrypt();
 
         }
     }

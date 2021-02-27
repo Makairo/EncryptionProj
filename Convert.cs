@@ -6,6 +6,15 @@ namespace EncryptionProj
 {
     public class Convert
     {
+        public static string[] StringToBi(string input)
+        {
+            string[] output = new string[input.Length];
+            for (int i = 0; i < input.Length; i++)
+            {
+                output[i] = CharToBi(input[i]);
+            }
+            return output;
+        }
         public static string CharToBi(char X)
         {
             string output = "";
@@ -99,7 +108,7 @@ namespace EncryptionProj
         {
             int output = 0;
             int Y = 128;
-            char outP = ' ';
+            char outChar = ' ';
             for (int i = 0; i < input.Length ; i++ )
             {
                 
@@ -109,22 +118,14 @@ namespace EncryptionProj
                 }
                 Y /= 2;
             }
-            outP = (char)output;
+            outChar = (char)output;
             if (output == '@')
             {
-                outP = ' ';
+                outChar = ' ';
             }
-            return outP;
+            return outChar;
         }
-        public static string[] StringToBi(string input)
-        {
-            string[] output = new string[input.Length];
-            for (int i = 0; i < input.Length; i++)
-            {
-                output[i] = CharToBi(input[i]);
-            }
-            return output;
-        }
+
         public static string BiToString(string[] input)
         {
             string output = "";
