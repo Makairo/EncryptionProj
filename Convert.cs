@@ -99,15 +99,22 @@ namespace EncryptionProj
         {
             int output = 0;
             int Y = 128;
+            char outP = ' ';
             for (int i = 0; i < input.Length ; i++ )
             {
+                
                 if (input[i] == '1')
                 {
                     output += Y;
                 }
                 Y /= 2;
             }
-            return (char)output;
+            outP = (char)output;
+            if (output == '@')
+            {
+                outP = ' ';
+            }
+            return outP;
         }
         public static string[] StringToBi(string input)
         {
