@@ -18,7 +18,7 @@ namespace EncryptionProj
         static void Main(string[] args)
         {
 
-            Console.WriteLine(Decrypt(Encrypt("Thank you Hanzel")));
+            Console.WriteLine(Decrypt(Encrypt("This made my head hurt")));
 
         }
     }
