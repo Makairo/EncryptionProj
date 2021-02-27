@@ -43,8 +43,8 @@ namespace EncryptionProj
             }
 
             Key1 = key;
-            Console.WriteLine(key);
-            Console.WriteLine(strOutput);
+            Console.WriteLine($"The key for your file is: {key}");
+            Console.WriteLine($"Encrypted data: {strOutput}");
             return strOutput;
         }
         public static string Decrypt(string input)
