@@ -21,7 +21,7 @@ namespace EncryptionProj
 
             string[] conversion = StringToBi(input);
 
-            x = Rando.Next(1, 997);
+            x = Rando.Next(500, 1555);
             key += x;
             key += '.';
             for (int i = 0; i < conversion.Length;i++)
